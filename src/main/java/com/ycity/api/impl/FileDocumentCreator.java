@@ -11,7 +11,8 @@ public class FileDocumentCreator implements DocumentCreator {
 
     public Document create(String path) throws DocumentCreatorException {
         Document document = null;
-        File input = new File(path);
+        ClassLoader classLoader = getClass().getClassLoader();
+        File input = new File(classLoader.getResource(path).getFile());
         if (input.exists()) {
             try {
                 document = Jsoup.parse(input, "UTF-8", "http://example.com/");

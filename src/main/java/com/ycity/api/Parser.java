@@ -11,6 +11,5 @@ import java.util.Map;
 
 public interface Parser {
 
-    <T extends BaseEntity> Map<Class<T>, Collection<T>> parse(Serializable memberId)
-        throws PathException, InvalidShowMessageArgsAmount, DocumentCreatorException;
+    <T extends BaseEntity> Map<Class<T>, Collection<T>> parse(Serializable memberId);
 }

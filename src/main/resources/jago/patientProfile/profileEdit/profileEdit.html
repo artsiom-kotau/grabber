@@ -1,0 +1,716 @@
+
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+  <meta charset="utf-8">
+    <title>JAGO</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+	    <meta name="author" content="Bluth Company">
+	    <link href="/Jago/static/patients/css/fullcalendar.css" rel="stylesheet">  <!-- Full Calendar -->
+	    <link href="/Jago/static/patients/css/bootstrap.min.css" rel="stylesheet">
+	    <link href="/Jago/static/patients/css/fontello.css" rel="stylesheet">
+	    <link href="/Jago/static/css/display.css" rel="stylesheet">
+	    <link href='https://fonts.googleapis.com/css?family=Crete+Round|Pathway+Gothic+One|Open+Sans:300,400,600,700,800' rel='stylesheet' type='text/css'>
+	    <link rel="Favicon Icon" href="favicon.ico">
+	    
+	    <!-- Password Strength Checking -->
+	    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.8.2/jquery.min.js"></script>
+	    <link rel="stylesheet" type="text/css" media="screen" href="/Jago/static/js/password_meeter/jquery.validate.password.css" />
+  		<script src="/Jago/static/js/password_meeter/jquery.js"></script>
+	    
+	    <!-- HTML5 shim, for IE6-8 support of HTML5 elements -->
+	    <!--[if lt IE 9]>
+	      <script src="https://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+	    <![endif]-->
+	    <link rel="stylesheet" href="/Jago/static/patients/js/plugins/pickadate/lib/themes/default.css" id="theme_base">
+	    <link rel="stylesheet" href="/Jago/static/patients/js/plugins/pickadate/lib/themes/default.date.css" id="theme_date">
+	    <link rel="stylesheet" href="/Jago/static/patients/js/plugins/pickadate/lib/themes/default.time.css" id="theme_time">
+	    <link href="/Jago/static/patients/css/colorpicker.css" rel="stylesheet">
+	    <link href="/Jago/static/patients/css/datepicker.css" rel="stylesheet">
+	    <link href="/Jago/static/patients/css/timepicker.css" rel="stylesheet">
+	    <link href="/Jago/static/patients/css/tinyeditor.css" rel="stylesheet">
+	    <link href="/Jago/static/patients/css/select2.css" rel="stylesheet">
+	    <link href="/Jago/static/patients/css/style.css" rel="stylesheet">
+     
+    <!-- HTML5 shim, for IE6-8 support of HTML5 elements -->
+    <!--[if lt IE 9]>
+      <script src="https://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+ 
+ 	<!-- Render Page Specific -->
+   	
+<meta name="layout" content="patientmenu">
+
+	
+	
+  </head>
+
+ <body>
+	<div id="bg-pp-img">
+	   <img src="/Jago/static/patients/img/backgrounds/bg.jpg" alt="Main Patient Portal Background Image" >
+    </div>
+    <div id="wrap"><!-- Main window -->
+		<div class="container-fluid">
+			<!-- Top menu -->
+			<div id="topmenu">
+				<div class="container-fluid">
+					<a class="btn btn-navbar slide_menu_left boxshadow visible-tablet">
+						<span class="icon-menu-1"></span>
+					</a>
+					<a class="btn btn-navbar slide_menu_down boxshadow visible-phone" data-toggle="collapse" data-target=".nav-collapse">
+						<span class="icon-menu-1"></span>
+					</a>
+				</div>
+			</div>
+        <!-- Header -->
+			<div id="topheader">
+				<div id="logocontainer">				    
+					<img src="/Jago/static/patients/img/showcase/logo.png" alt="Logo" id="logo">
+				</div>
+				  
+				<!-- User area -->
+				<div id="top-user">
+				<!-- Right side -->
+					
+				   	 			    
+					<div id="top-user-right">
+						<a href="#" id="user-dropdown-button">Logged in as <h4>Smith, Steve <i class="icon-down-dir-1"></i></h4></a>
+						<div class="clearfix"></div>
+						<div id='date_time' style="font-size: 12px ; text-align: right ; color: white"></div>
+						<div id="user-dropdown" class="row-fluid box menu-dropdown">
+							<div class="span6 pad25 centeralign">
+								<div class="image-100 circled" style="display:inline-block;">
+								<img src="/Jago/static/patients/img/showcase/avatars_large/male.jpg" width="100" height="100"></div>
+								<h3 class="info info-vertical login-name-break"><a href="#">Smith, Steve</a></h3>
+							</div>
+							<ul class="span6 menu">
+							<!-- 
+								<li><a href="#"><i class="icon-upload-2 yellow-text"></i> 5'11"</a></li>
+								<li><a href="#"><i class="icon-clock-1 blue-text"></i> 185 lbs</a></li>
+								<li><a href="#"><i class="icon-tint red-text"></i> 130/80</a></li>
+								<li><a href="#"><i class="icon-chart green-text"></i> 75 bpm</a></li>
+							 -->
+							 	
+								 	
+								 								
+									
+							</ul>
+						</div>
+					</div>
+					
+											
+						<!-- Left side -->
+					<div id="top-user-left">
+						<a href="#" id="mail-dropdown-button"><i class="icon-users-1 green-text"></i></a>
+					<div id="mail-dropdown" class="box menu-dropdown">
+					<h4 class="pad15 centeralign">CHOSEN PROFILE</h4>
+					<!-- Widget Comments -->
+						<div class="widget-comments slimscroll_300">
+							<ul>
+						
+						
+						
+							
+	                      
+	                        
+	                       		
+	                       		<li>
+	                       				<div class="left">
+	                          				<div class="image"><img src="/Jago/static/patients/img/showcase/avatars_x50/04.jpg"></div>                          
+	                        			</div>
+			                            <a href="/Jago/dashBoard/chosePerson?name=Smith%2C+Steve&amp;userId=285" class="orange-text">Smith, Steve</a>
+			                     </li>      
+		                         
+	                         
+	                      
+	                      	
+	                      
+	                        
+	                         		<li>
+	                         			<div class="left">
+	                          				<div class="image"><img src="/Jago/static/patients/img/showcase/avatars_x50/04.jpg"></div>                          
+	                        			</div>
+	                         			
+			                         	<div class="pull-right" style="padding-right:10px;">
+					                         	  
+					                         		<a href="#" class="btn btn-info btn-mini" onclick="javascript:revoke('328');">Revoke</a>
+					                         	
+				                        </div>
+			                            <a href="/Jago/dashBoard/chosePerson?name=Smith%2CChang&amp;userId=328" class="orange-text">Smith,Chang</a>
+			                  		</li>           	
+	                         
+	                      
+	                      	
+	                      
+	                        
+	                         		<li>
+	                         			<div class="left">
+	                          				<div class="image"><img src="/Jago/static/patients/img/showcase/avatars_x50/04.jpg"></div>                          
+	                        			</div>
+	                         			
+			                         	<div class="pull-right" style="padding-right:10px;">
+					                         	  
+					                         		<a href="#" class="btn btn-info btn-mini" onclick="javascript:revoke('290');">Revoke</a>
+					                         	
+				                        </div>
+			                            <a href="/Jago/dashBoard/chosePerson?name=Smith%2CDavid&amp;userId=290" class="orange-text">Smith,David</a>
+			                  		</li>           	
+	                         
+	                      
+	                      	                      
+                 
+             
+                      
+                      </ul>
+						</div>
+					</div>
+					</div>
+					 
+				</div>
+			</div>
+        <!-- Side menu -->
+        <!-- The colors are defined in the css around line 555 with nth-child, which means the colors are dynamic -->
+        <div class="navbar themebgcolor">
+          <div class="sidebar-nav nav-collapse collapse themebgcolor">
+            <div class="navbar-inner themebgcolor" data-spy="affix" data-offset-top="110">
+              <div class="user_side clearfix centeralign">
+			  	<div class="centeralign">
+				   <h4 class="red-text">CHOSEN PROFILE</h4>
+				  <div style="display:inline-block;" class="image-100 circled">
+					<img class="" alt="Placeholder" src="/Jago/static/patients/img/showcase/avatars_large/male.jpg" width="100" height="100">
+				  </div>
+				  <h4 class="info info-vertical">Smith, Steve</h4>
+				</div>
+              </div>
+              <div class="accordion" id="main-accordion">
+             
+                <div class="accordion-group">
+                  <div class="accordion-heading" style=" border-top: 1px solid rgba(0, 0, 0, 0.05);">
+                   <a href="/Jago/dashBoard/chosePerson?name=Smith%2C+Steve&amp;userId=285" class="accordion-toggle" href="index.html"><div class="menubg" id="dashboard"></div><i class="icon-home-1"></i><span>dashboard</span></a>
+                  </div>
+                </div>
+				<div class="accordion-group">
+                  <div class="accordion-heading">
+                     <a href="/Jago/patientProfile/profileEdit" onclick="return checkPermission();" class="accordion-toggle" href="profile.html"><div class="menubg " id="profile"></div><i class="icon-user-3"></i><span>profile</span></a>
+                  </div>
+                </div>                  
+				
+                <div class="accordion-group">
+                  <div class="accordion-heading">
+                   <a href="/Jago/patientAppointments/appointments" onclick="return checkPermission();" class="accordion-toggle"><div class="menubg" id="appointment"></div><i class="icon-calendar-1"></i><span>appointments</span></a>
+                  </div>
+                </div>
+                
+	                <div class="accordion-group">
+	                  <div class="accordion-heading">
+	                       <a href="/Jago/patientMessage/messages" onclick="return checkPermission();" class="accordion-toggle"><div class="menubg" id="message"></div><i class="icon-mail-1"></i><span>messages</span></a>
+	                  </div>
+	                </div>
+                
+               
+                <div class="accordion-group">
+                  <div class="accordion-heading">
+                    <a href="/Jago/patientMedicationRefill/refill" onclick="return checkPermission();" class="accordion-toggle" href="#"><div class="menubg" id="medicationRefill"></div><i class="icon-tasks"></i><span>medication refill</span></a>
+                  </div>
+                </div>
+				<div class="accordion-group">
+                  <div class="accordion-heading">
+                    <a href="/Jago/medicalHistory/history" onclick="return checkPermission();" class="accordion-toggle" href="#"><div class="pull-left" id="history"><div class="menubg" ></div><i class="icon-download-1"></i></div><span>View your medical history</span></a>
+                  </div>
+                </div>
+                <div class="accordion-group">
+                  <div class="accordion-heading">
+                   <a href="/Jago/userPatientForms/patientForms" onclick="return checkPermission();" class="accordion-toggle" href="#"><div class="menubg" id="patientForm"></div><i class="icon-list-alt"></i><span>patient forms</span></a>
+                  </div>
+                </div>
+                
+                
+                <div class="accordion-group">
+                <div class="accordion-heading">
+	                
+	                </div>
+                </div>
+                
+                <div class="accordion-group">
+                  <div class="accordion-heading">
+                  
+                  </div>
+                </div>
+                <div class="accordion-group">
+                  <div class="accordion-heading">
+                  
+                  	<div class="clearfix"></div>
+                  </div>
+                </div>
+				<div class="accordion-group">
+                  <div class="accordion-heading ">
+                    <a href="/Jago/logout/index" class="accordion-toggle"><div class="menubg " ></div><i class="icon-logout"></i><span>logout</span></a>
+                  </div>
+                </div>				
+              </div>
+            </div>
+          </div>
+        </div>
+   
+
+	<!-- The colors are defined in the css around line 555 with nth-child, which means the colors are dynamic -->
+
+
+	<div id="forms_page" class="main_container glass">
+		<div class="row-fluid title blue-topstripe">
+			<h1>
+				Profile
+				<small><a href="/Jago/dashBoard/patientIndex" class="blue-text">
+						Home
+					</a> <i class="icon-angle-double-right"></i> Profile</small>
+			</h1>
+		</div>
+
+		<div class="group">
+			<div class="row-fluid">
+				<div class="widget widget-padding box span12">
+
+					<div class="widget-body pad25" style="height: auto;">
+						<div class="widget-forms clearfix">
+							<form action="/Jago/patientProfile/index" method="post" name="patientForm" class="form-horizontal" id="patientForm" >
+								<h4 class="blue-text">
+									Personal Information
+								</h4>
+								<div class="clearfix">&nbsp;&nbsp;</div>
+								
+
+									<div class="control-group">
+										<label class="control-label"><b>First Name </b></label>
+										<div class="controls">
+											<input type="text" id="form_username" name="firstName"
+												class="span7" value="Steve"
+												readonly="readonly">
+										</div>
+									</div>
+
+									<div class="control-group">
+										<label class="control-label"><b>Last name</b></label>
+										<div class="controls">
+											<input type="text" id="form_username" name="lastName"
+												class="span7" value="Smith"
+												readonly="readonly">
+										</div>
+									</div>
+									<div class="control-group">
+										<label class="control-label"><b>SSN</b></label>
+										<div class="controls">
+											<input type="text" id="form_username" name="ssn"
+												class="span7" value="200000000" disabled="disabled">
+										</div>
+									</div>
+									<div class="control-group">
+										<label class="control-label"><b>DOB</b></label>
+										<div class="controls">
+											<input class="span7" type="text" disabled="disabled"
+												value="12/12/1901">
+										</div>
+									</div>
+									
+										<div class="control-group">
+											<label class="control-label"><b>Street1 </b></label>
+											<div class="controls">
+												<input type="text" id="street" name="street" class="span7" maxlength="80"
+													value="745, 7th Street" onkeyup="clearError('street','addErr1');">
+												<span id="addErr1" style="font-size: 11px; color: rgb(255, 0, 0); position: absolute;"></span>
+											</div>
+										</div>
+										<div class="control-group">
+											<label class="control-label">Street2</label>
+											<div class="controls">
+												<input type="text" id="street2" name="street2" class="span7" maxlength="80"
+													value="Cornhill " >
+												<span id="add_Err2" style="font-size: 11px; color: rgb(255, 0, 0); position: absolute;"></span>
+											</div>
+										</div>
+										<div class="control-group">
+											<label class="control-label"><b>City</b></label>
+											<div class="controls">
+												<input type="text" id="city" name="city" class="span7"
+													value="Houston"
+													maxlength="10" onkeyup="clearError('city','addErr2');"> <span id="addErr2"
+													style="font-size: 11px; color: rgb(255, 0, 0); position: absolute;"></span>
+											</div>
+										</div>
+										<div class="control-group">
+											<label class="control-label"><b>State</b></label>
+											<div class="controls">
+												<input type="text" id="state" name="state" class="span7"
+													value="TX"
+													maxlength="2" onkeyup="clearError('state','addErr3');"> <span id="addErr3"
+													style="font-size: 11px; color: rgb(255, 0, 0); position: absolute;"></span>
+											</div>
+										</div>
+										<div class="control-group">
+											<label class="control-label">Zipcode</label>
+											<div class="controls">	
+													<input type="text" id="zipcode" name="zipcode"
+														class="span7"
+														value="76301"
+														maxlength="9">
+												
+												<span id="addErr4" style="font-size: 11px; color: rgb(255, 0, 0); position: absolute;"></span>
+											</div>
+										</div>
+										<div class="control-group">
+											<label class="control-label">County</label>
+											<div class="controls">
+											
+												<input type="text" id="county" name="county" class="span7"
+													value="USA"
+													maxlength="10" onkeyup="clearError('county','addErr5');"> <span id="addErr5"
+													style="font-size: 11px; color: rgb(255, 0, 0); position: absolute;"></span>
+													
+											</div>
+										</div>
+                                        <div class="control-group">
+														<label class="control-label"><b>Email Address</b></label>
+														<div class="controls">
+															<input type="text"  id="email_Id"
+																name="emailAddress" class="span7" maxlength="128"
+																value="patient2@gmail.com" onkeyup="clearError('email_Id','emailaddrErr');"> <span
+																id="emailaddrErr" style="font-size: 11px;"></span>
+														</div>
+										</div>
+										<div class="control-group">
+											<label class="control-label"><b>Prefer Contact</b></label>
+											<div class="controls">
+												<select id="contactList" class="span7" name="preferContact" onchange="clearError(&#39;contactList&#39;,&#39;preConErr&#39;);" >
+<option value="">Select</option>
+<option value="1" >Home Phone</option>
+<option value="2" >Work Phone</option>
+<option value="3" >Cellular</option>
+<option value="4" selected="selected" >E-mail</option>
+<option value="5" >Fax</option>
+<option value="6" >Pager</option>
+<option value="7" >Mail</option>
+<option value="8" >Face to Face</option>
+<option value="9" >TDD</option>
+<option value="10" >Portal</option>
+<option value="11" >Phone</option>
+</select>
+												<span id="preConErr" style="font-size: 11px; color: rgb(255, 0, 0); position: absolute;"></span>
+											</div>
+										</div>
+
+										<div class="control-group">
+											<label class="control-label"><b>Gender</b></label>
+											<div class="controls">
+												<select id="genderList" class="span7" name="gender" onchange="clearError(&#39;genderList&#39;,&#39;preGenErr&#39;);" >
+<option value="">Select</option>
+<option value="1" >Female</option>
+<option value="2" selected="selected" >Male</option>
+<option value="3" >Other</option>
+<option value="4" >Unknown</option>
+</select>
+												<span id="preGenErr" style="font-size: 11px; color: rgb(255, 0, 0); position: absolute;"></span>
+											</div>
+										</div>
+										<div class="control-group">
+											<label class="control-label"><b>Preferred Communication</b></label>
+											<div class="controls">
+												<select id="langList" class="span7" name="languageName" >
+<option value="38" selected="selected" >English</option>
+<option value="40" >Spanish; Castilian</option>
+</select>
+												<span id="preLanErr" style="font-size: 11px; color: rgb(255, 0, 0); position: absolute;"></span>
+											</div>
+										</div>
+
+										
+
+										<div class="control-group">
+											<label class="control-label">Home Phone </label>
+											<div class="controls">
+												<input type="text" id="homePhone" name="homePhone"
+													class="span7" value="" maxlength="14"
+													placeholder="(254) 298-7300" onkeyup="clearError('homePhone','homeErr');"> <span id="homeErr"
+													style="color: rgb(255, 0, 0); width: 250px; font-size: 11px; position: absolute;"></span>
+											</div>
+										</div>
+										<div class="control-group">
+											<label class="control-label">Work Phone </label>
+											<div class="controls">
+												<input type="text" id="workphone" name="workphone"
+													class="span7" value="" maxlength="14"
+													placeholder="(254) 298-7300" onkeyup="clearError('workphone','workErr');"> <span id="workErr"
+													style="color: rgb(255, 0, 0); width: 250px; font-size: 11px; position: absolute;"></span>
+											</div>
+										</div>
+										<div class="control-group">
+											<label class="control-label">Mobile Phone </label>
+											<div class="controls">
+												<input type="text" id="mobilephone" name="mobilephone"
+													class="span7" value="" maxlength="14"
+													placeholder="(254) 298-7300" onkeyup="clearError('mobilephone','mobErr');"> <span id="mobErr"
+													style="color: rgb(255, 0, 0); width: 250px; font-size: 11px; position: absolute;"></span>
+											</div>
+										</div>
+										<div class="control-group">
+											<label class="control-label">Alternate Phone  </label>
+											<div class="controls">
+												<input type="text" id="alternatephone" name=alternatephone
+													class="span7" value="" maxlength="14"
+													placeholder="(254) 298-7300" onkeyup="clearError('alternatephone','alternateErr');"> <span
+													id="alternateErr" style="color: rgb(255, 0, 0); width: 250px; font-size: 11px; position: absolute;"></span>
+											</div>
+										</div>
+										<div class="clearfix">&nbsp;&nbsp;</div>
+										<!-- Access detail start -->
+										<input type="hidden" name="access" id="hiddenAccessId" value="true" />
+										
+													<h4 class="blue-text">
+														Access Details
+													</h4>
+													<div class="clearfix">&nbsp;&nbsp;</div>
+													<div class="control-group">
+														<label class="control-label"><b>UserName </b></label>
+														<div class="controls">
+															<input type="text" readonly="readonly" id="emailId"
+																name="userName" class="span7"
+																value="patient2@gmail.com"> <span
+																id="emailErr" style="font-size: 11px;"></span>
+														</div>
+			
+													</div>
+													<div class="control-group">
+														<label class="control-label">Password<a href="#"
+															id="styling"
+															data-tooltip="The password should be 7-20 characters long with a mix of letters and numbers"></a></label>
+			
+														<div class="controls">
+															<table>
+																<tr>
+																	<td><input type="password" id="password"
+																		name="password" class="password" style="width: 296px"
+																		maxlength="20" onkeyup="clearError('password','newPasswordErr');"></td>
+																	<!-- Password Meeter -->
+																	<td>
+																		<div class="password-meter">
+																			<div class="password-meter-message">&nbsp;</div>
+																			<div class="password-meter-bg">
+																				<div class="password-meter-bar"></div>
+																			</div>
+																		</div>
+																	</td>
+																</tr>
+															</table>
+															<span id="newPasswordErr" style="font-size: 11px; color: rgb(255, 0, 0); position: absolute;" ></span>
+														</div>
+													</div>
+													<div class="control-group">
+														<label class="control-label">Confirm Password</label>
+														<div class="controls">
+															<input type="password" id="confirmPassword"
+																name="confirmPassword" class="span7" value=""
+																maxlength="20" onkeyup="clearError('confirmPassword','confirmPasswordErr');"> <span id="confirmPasswordErr"
+																style="font-size: 11px; color: rgb(255, 0, 0); position: absolute;"></span>
+														</div>
+													</div>
+													<div class="clearfix">&nbsp;&nbsp;</div>
+			
+													
+														<div class="control-group">
+															<label class="control-label"><b>Security Question #1</b></label>
+															<div class="controls">
+																<select id="securityQuestion1" class="span7" tabindex="1" name="questionName1" onchange="clearError(&#39;securityQuestion1&#39;,&#39;questionErr&#39;);" >
+<option value="1" selected="selected" >Name of your favourite city</option>
+<option value="2" >Name of your school</option>
+<option value="3" >How many languages you know to read and write</option>
+<option value="4" >When did you pass out in school</option>
+</select>
+			
+															</div>
+														</div>
+														<div class="control-group">
+															<label class="control-label"><b>Answer</b></label>
+															<div class="controls">
+																<input type="text" maxlength="50" id="securityAnswer1"
+																	name="securityAnswer1" class="span7"
+																	value="Sydney" 
+																	 onkeyup="clearError('securityAnswer1','answerErr');">
+															</div>
+														</div>
+													
+														<div class="control-group">
+															<label class="control-label"><b>Security Question #2</b></label>
+															<div class="controls">
+																<select id="securityQuestion2" class="span7" tabindex="1" name="questionName2" onchange="clearError(&#39;securityQuestion2&#39;,&#39;questionErr&#39;);" >
+<option value="1" >Name of your favourite city</option>
+<option value="2" selected="selected" >Name of your school</option>
+<option value="3" >How many languages you know to read and write</option>
+<option value="4" >When did you pass out in school</option>
+</select>
+			
+															</div>
+														</div>
+														<div class="control-group">
+															<label class="control-label"><b>Answer</b></label>
+															<div class="controls">
+																<input type="text" maxlength="50" id="securityAnswer2"
+																	name="securityAnswer2" class="span7"
+																	value="Josephs" 
+																	 onkeyup="clearError('securityAnswer2','answerErr');">
+															</div>
+														</div>
+													
+										
+													<div class="controls">
+														<span id="questionErr" style="font-size: 11px; color: rgb(255, 0, 0);"></span> <span
+															id="answerErr" style="font-size: 11px;"></span>
+													</div>
+											
+										
+										
+										<!-- Access detail end -->
+										<div class="control-group" align="right">
+											<label class="control-label">&nbsp;</label>
+											<div class="controls">
+												<input type="submit" name="_action_profileEdit" value="Save" onclick="return patientProfileEdit(true)" class="btn btn-info" id="editButt" />
+												&nbsp;
+												<input type="submit" name="_action_cancel" value="Cancel" class="btn btn-info" />
+											</div>
+										</div>
+									
+								
+							</form>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+
+
+	<!-- example modal -->
+	<div id="example_modal" class="modal hide fade" tabindex="-1"
+		role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+		<div class="modal-header">
+			<button type="button" class="close" data-dismiss="modal"
+				aria-hidden="true">Ã—</button>
+			<h3 id="myModalLabel">Widget Settings</h3>
+		</div>
+		<div class="modal-body">
+			<p>Here you can view and manage this widget's settings</p>
+		</div>
+		<div class="modal-footer">
+			<button class="btn" data-dismiss="modal" aria-hidden="true">Close</button>
+			<button class="btn btn-primary">Save changes</button>
+		</div>
+	</div>
+	<script type="text/javascript" src="/Jago/jawr/gzip_N816019827.ru/i18n/messages.js" ></script>
+
+	<script
+		src="https://ajax.googleapis.com/ajax/libs/jquery/1.8.2/jquery.min.js"></script>
+	<script type="text/javascript"
+		src="/Jago/static/js/active/patient/profile.js"></script>
+	<script type="text/javascript"
+		src="/Jago/static/js/patient/patientProfile.js"></script>
+	<script type="text/javascript"
+		src="/Jago/static/js/autoLogout/patientLogout.js"></script>
+
+   
+   </div>
+   </div>
+   
+   <div id="delete" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+		<div class="modal-header">
+			<button type="button" class="close" data-dismiss="modal" aria-hidden="true">ÃƒÆ’Ã†â€™Ãƒâ€ Ã¢â‚¬â„¢ÃƒÆ’Ã‚Â¢ÃƒÂ¢Ã¢â‚¬Å¡Ã‚Â¬ÃƒÂ¢Ã¢â€šÂ¬Ã‚Â</button>
+			<h3 id="myModalLabel">Delete</h3>
+		</div>
+		<div class="modal-body">
+			<label class="control-label text-center">Are you sure you want to delete?</label>
+		</div>
+		<div class="modal-footer">
+			<button class="btn btn-primary">Yes</button>
+			<button class="btn btn-primary">No</button>
+		</div>
+	</div>
+   		
+   		 <script type="text/javascript" src="/Jago/static/js/password_meeter/jquery.validate.js"></script>
+	    <script type="text/javascript" src="/Jago/static/js/password_meeter/jquery.validate.password.js"></script>
+	    <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.9.2/jquery-ui.min.js"></script>
+	    
+			
+
+    <!-- Plugins -->
+   		<script type="text/javascript" src="/Jago/static/patients/js/plugins/jquery.slimscroll.min.js"></script>         <!-- Slimscroll -->
+     	<script type="text/javascript" src="/Jago/static/patients/js/plugins/select2.min.js"></script>                   <!-- Select2 -->
+    	<script type="text/javascript" src="/Jago/static/patients/js/plugins/bootstrap-colorpicker.js"></script>         <!-- Bootstrap Color Picker -->
+	    <script type="text/javascript" src="/Jago/static/patients/js/plugins/bootstrap-datepicker.js"></script>          <!-- Bootstrap Date Picker -->
+	    <script type="text/javascript" src="/Jago/static/patients/js/plugins/bootstrap-timepicker.js"></script>          <!-- Bootstrap Time Picker -->
+	    <script type="text/javascript" src="/Jago/static/patients/js/plugins/pickadate/lib/picker.js"></script>          <!-- Pickadate -->
+	    <script type="text/javascript" src="/Jago/static/patients/js/plugins/pickadate/lib/picker.date.js"></script>          <!-- Pickadate -->
+	    <script type="text/javascript" src="/Jago/static/patients/js/plugins/pickadate/lib/picker.time.js"></script>          <!-- Pickadate -->
+	    <script type="text/javascript" src="/Jago/static/patients/js/plugins/pickadate/lib/legacy.js"></script>          <!-- Pickadate (for older browsers) -->
+	    <script type="text/javascript" src="/Jago/static/patients/js/plugins/tiny.editor.packed.js"></script>            <!-- Tiny Editor -->
+	    <script type="text/javascript" src="/Jago/static/patients/js/bootstrap.min.js"></script>
+	    <script type="text/javascript" src="/Jago/static/patients/js/auto.js"></script>
+	    <script type="text/javascript" src="/Jago/static/patients/js/plugins/jquery.dataTables.min.js"></script>  
+  		<script type="text/javascript" src="/Jago/static/patients/js/plugins/jquery.bootstrap.wizard.min.js"></script>   <!-- Bootsrap Wizard -->
+  		<script type="text/javascript" src="/Jago/static/js/patient/ghostAndRole.js"></script>
+  		<script type="text/javascript" src="/Jago/static/js/timer/date_time.js"></script>
+ 		<script type="text/javascript">
+			function revoke(userId){
+				var time = new Date();
+				var isSessionActive = "";
+				$.ajax({
+					async: false,
+					url : "../sessionCheck/getSessionStatus?r="+ time.getTime(),
+					success : function(res) {
+						isSessionActive = res;
+				}});
+				
+				if(isSessionActive == 'false'){
+					window.location.href = "../logout"
+				}else{
+					$.ajax({
+						url:"../dashBoard/revoke",
+						data:{"deActiveUserId":userId},
+						type:"POST",
+						async:false,
+						success:function(resposeHtml){
+								if($.trim(resposeHtml)==""){
+									window.location.href="../dashBoard/patientIndex";
+								}else{
+									alert(resposeHtml);
+								}
+						}
+						});
+				}
+				
+			}
+			
+		</script>
+	<script type="text/javascript">
+				window.onload = date_time('date_time');
+    	</script>
+    	  
+  </body>
+</html>
+
+
+ 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

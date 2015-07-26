@@ -1,34 +1,45 @@
 package com.ycity.api.impl;
 
+import com.ycity.api.DocumentCreator;
 import com.ycity.api.PageParseResult;
 import com.ycity.api.PageParser;
 import com.ycity.api.Parser;
-import com.ycity.api.exception.DocumentCreatorException;
-import com.ycity.api.exception.InvalidShowMessageArgsAmount;
-import com.ycity.api.exception.PathException;
+import com.ycity.api.appointment.impl.AppointmentPageParser;
+import com.ycity.api.demographics.DemographicsPageParser;
+import com.ycity.api.message.MessagePageMapper;
+import com.ycity.api.message.impl.MessagePageParser;
 import com.ycity.api.model.BaseEntity;
 
 import java.io.Serializable;
-import java.util.Collection;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
+import java.util.*;
 
 public class JagoParser implements Parser {
 
     private String host;
     private List<PageParser> pageParsers;
 
-    public JagoParser(String host) {
+    public JagoParser(String host, DocumentCreator documentCreator,
+        MessagePageMapper messagePageMapper) {
         this.host = host;
+        this.pageParsers = new ArrayList<>(3);
+        this.pageParsers.add(new MessagePageParser(documentCreator, messagePageMapper));
+        this.pageParsers.add(new AppointmentPageParser(documentCreator));
+        this.pageParsers.add(new DemographicsPageParser(documentCreator));
     }
 
-    public <T extends BaseEntity> Map<Class<T>, Collection<T>> parse(Serializable memberId)
-        throws PathException, InvalidShowMessageArgsAmount, DocumentCreatorException {
+    public <T extends BaseEntity> Map<Class<T>, Collection<T>> parse(Serializable memberId) {
         Map<Class<T>, Collection<T>> result = new HashMap<>();
         for (PageParser pageParser : pageParsers) {
             PageParseResult parseResult = pageParser.parsePage(host, memberId);
-            result.put(parseResult.getEntityClass(), parseResult.getEntities());
+            if (parseResult.hasError()) {
+                //todo log system
+                System.out.println(String
+                    .format("Class : %s; Error: %s", parseResult.getEntityClass().getName(),
+                        parseResult.getException().getMessage()));
+            } else {
+                result.put(parseResult.getEntityClass(), parseResult.getEntities());
+            }
+
         }
 
         return result;

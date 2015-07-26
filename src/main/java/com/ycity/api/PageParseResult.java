@@ -29,6 +29,10 @@ public class PageParseResult<T> {
         return entities;
     }
 
+    public Throwable getException() {
+        return exception;
+    }
+
     public boolean hasError() {
         return exception != null;
     }
