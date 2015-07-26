@@ -25,7 +25,7 @@ public class JagoParser implements Parser {
 
     public <T extends BaseEntity> Map<Class<T>, Collection<T>> parse(Serializable memberId)
         throws PathException, InvalidShowMessageArgsAmount, DocumentCreatorException {
-        Map<Class<T>, Collection<T>> result = new HashMap<Class<T>, Collection<T>>();
+        Map<Class<T>, Collection<T>> result = new HashMap<>();
         for (PageParser pageParser : pageParsers) {
             PageParseResult parseResult = pageParser.parsePage(host, memberId);
             result.put(parseResult.getEntityClass(), parseResult.getEntities());

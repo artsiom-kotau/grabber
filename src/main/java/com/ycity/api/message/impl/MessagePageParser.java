@@ -1,4 +1,4 @@
-package com.ycity.api.impl;
+package com.ycity.api.message.impl;
 
 import com.ycity.api.AbstractPageParser;
 import com.ycity.api.DocumentCreator;
@@ -35,16 +35,18 @@ public class MessagePageParser extends AbstractPageParser implements PageParser<
         this.messagePageMapper = messagePageMapper;
     }
 
-    public PageParseResult<Message> parsePage(String host, Serializable memberId)
-        throws DocumentCreatorException, InvalidShowMessageArgsAmount, PathException {
-        Document messagesPage = documentCreator.create(host + MESSAGES_URL);
-        List<Message> messages = new ArrayList<Message>();
-        messages.addAll(
-            processMessageDocument(memberId, getMessagesElements(messagesPage, "tab1"), false));
-        messages.addAll(
-            processMessageDocument(memberId, getMessagesElements(messagesPage, "tab3"), true));
-
-        return new PageParseResult<Message>(Message.class, messages);
+    public PageParseResult<Message> parsePage(String host, Serializable memberId){
+        try {
+            Document messagesPage = documentCreator.create(host + MESSAGES_URL);
+            List<Message> messages = new ArrayList<>();
+            messages.addAll(
+                processMessageDocument(memberId, getMessagesElements(messagesPage, "tab1"), false));
+            messages.addAll(
+                processMessageDocument(memberId, getMessagesElements(messagesPage, "tab3"), true));
+            return new PageParseResult<>(Message.class, messages);
+        } catch (Exception exc) {
+            return new PageParseResult<>(Message.class, exc);
+        }
     }
 
     private Elements getMessagesElements(Document document, String tabName) {
@@ -54,8 +56,8 @@ public class MessagePageParser extends AbstractPageParser implements PageParser<
 
     private List<Message> processMessageDocument(Serializable id, Elements messageElements,
         boolean sent) throws InvalidShowMessageArgsAmount, PathException, DocumentCreatorException {
-        List<Message> messages = new ArrayList<Message>();
-        Set<ShowMessageArgs> processed = new HashSet<ShowMessageArgs>();
+        List<Message> messages = new ArrayList<>();
+        Set<ShowMessageArgs> processed = new HashSet<>();
         for (Element messageElement : messageElements) {
             ShowMessageArgs messageArgs = getShowMessageArgsFromElement(messageElement, sent);
             if (messageArgs != null && !processed.contains(messageArgs)) {

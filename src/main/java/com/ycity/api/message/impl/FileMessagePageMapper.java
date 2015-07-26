@@ -14,7 +14,7 @@ public class FileMessagePageMapper implements MessagePageMapper {
     private static Map<ShowMessageArgs, String> pathToMessage;
 
     static {
-        pathToMessage = new HashMap<ShowMessageArgs, String>();
+        pathToMessage = new HashMap<>();
         //inbox
         pathToMessage.put(new ShowMessageArgs("697", "697", "Your medical records required", "1"),
             "/viewMessage/inbox/1/1.html");

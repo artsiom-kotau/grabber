@@ -9,6 +9,5 @@ import java.io.Serializable;
 
 public interface PageParser<T extends BaseEntity> {
 
-    PageParseResult<T> parsePage(String host, Serializable memberId)
-        throws DocumentCreatorException, InvalidShowMessageArgsAmount, PathException;
+    PageParseResult<T> parsePage(String host, Serializable memberId);
 }
