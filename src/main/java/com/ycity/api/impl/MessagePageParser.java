@@ -63,6 +63,7 @@ public class MessagePageParser extends AbstractPageParser implements PageParser<
                 Message newMessage = getMessageFromDocument(messageViewDocument);
                 if (newMessage != null) {
                     newMessage.setMemberId(id);
+                    newMessage.setInbox(!sent);
                     messages.add(newMessage);
                 }
                 processed.add(messageArgs);

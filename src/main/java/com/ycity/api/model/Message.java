@@ -8,6 +8,7 @@ public class Message extends BaseEntity {
     private String from;
     private String message;
     private String attachment;
+    private boolean inbox;
 
 
     public Long getVisitId() {
@@ -66,15 +67,24 @@ public class Message extends BaseEntity {
         this.to = to;
     }
 
+    public boolean isInbox() {
+        return inbox;
+    }
+
+    public void setInbox(boolean inbox) {
+        this.inbox = inbox;
+    }
+
     @Override public String toString() {
         return "Message{" +
             "visitId=" + visitId +
-            ", date=" + date +
+            ", date='" + date + '\'' +
             ", subject='" + subject + '\'' +
             ", to='" + to + '\'' +
             ", from='" + from + '\'' +
             ", message='" + message + '\'' +
-            ", attachment=" + attachment +
+            ", attachment='" + attachment + '\'' +
+            ", inbox=" + inbox +
             '}';
     }
 }
