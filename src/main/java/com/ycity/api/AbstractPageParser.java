@@ -1,6 +1,6 @@
 package com.ycity.api;
 
-public class AbstractPageParser  {
+public class AbstractPageParser {
 
     protected DocumentCreator documentCreator;
 

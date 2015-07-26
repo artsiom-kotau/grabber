@@ -7,7 +7,7 @@ public class ShowMessageArgs {
     private String value;
     private String enable;
 
-    public ShowMessageArgs(String messageId, String id,  String value, String enable) {
+    public ShowMessageArgs(String messageId, String id, String value, String enable) {
         this.messageId = messageId;
         this.id = id;
         this.refrence = messageId;
@@ -15,7 +15,8 @@ public class ShowMessageArgs {
         this.enable = enable;
     }
 
-    public ShowMessageArgs(String messageId, String id, String refrence, String value, String enable) {
+    public ShowMessageArgs(String messageId, String id, String refrence, String value,
+        String enable) {
         this.messageId = messageId;
         this.id = id;
         this.refrence = refrence;
@@ -43,23 +44,27 @@ public class ShowMessageArgs {
         return enable;
     }
 
-    @Override
-    public boolean equals(Object o) {
-        if (this == o) return true;
-        if (!(o instanceof ShowMessageArgs)) return false;
+    @Override public boolean equals(Object o) {
+        if (this == o)
+            return true;
+        if (!(o instanceof ShowMessageArgs))
+            return false;
 
         ShowMessageArgs that = (ShowMessageArgs) o;
 
-        if (id != null ? !id.equals(that.id) : that.id != null) return false;
-        if (messageId != null ? !messageId.equals(that.messageId) : that.messageId != null) return false;
-        if (refrence != null ? !refrence.equals(that.refrence) : that.refrence != null) return false;
-        if (value != null ? !value.equals(that.value) : that.value != null) return false;
+        if (id != null ? !id.equals(that.id) : that.id != null)
+            return false;
+        if (messageId != null ? !messageId.equals(that.messageId) : that.messageId != null)
+            return false;
+        if (refrence != null ? !refrence.equals(that.refrence) : that.refrence != null)
+            return false;
+        if (value != null ? !value.equals(that.value) : that.value != null)
+            return false;
         return !(enable != null ? !enable.equals(that.enable) : that.enable != null);
 
     }
 
-    @Override
-    public int hashCode() {
+    @Override public int hashCode() {
         int result = id != null ? id.hashCode() : 0;
         result = 31 * result + (messageId != null ? messageId.hashCode() : 0);
         result = 31 * result + (refrence != null ? refrence.hashCode() : 0);
@@ -68,14 +73,13 @@ public class ShowMessageArgs {
         return result;
     }
 
-    @Override
-    public String toString() {
+    @Override public String toString() {
         return "ShowMessageArgs{" +
-                "id='" + id + '\'' +
-                ", messageId='" + messageId + '\'' +
-                ", refrence='" + refrence + '\'' +
-                ", value='" + value + '\'' +
-                ", enable='" + enable + '\'' +
-                '}';
+            "id='" + id + '\'' +
+            ", messageId='" + messageId + '\'' +
+            ", refrence='" + refrence + '\'' +
+            ", value='" + value + '\'' +
+            ", enable='" + enable + '\'' +
+            '}';
     }
 }

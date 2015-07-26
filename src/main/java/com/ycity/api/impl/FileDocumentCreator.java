@@ -16,7 +16,7 @@ public class FileDocumentCreator implements DocumentCreator {
             try {
                 document = Jsoup.parse(input, "UTF-8", "http://example.com/");
             } catch (Exception exc) {
-                throw  new DocumentCreatorException(exc);
+                throw new DocumentCreatorException(exc);
             }
 
         }

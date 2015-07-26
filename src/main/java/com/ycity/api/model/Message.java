@@ -1,14 +1,13 @@
 package com.ycity.api.model;
 
-import java.util.Date;
-
-public class Message extends BaseEntity{
+public class Message extends BaseEntity {
     private Long visitId;
-    private Date date;
+    private String date;
     private String subject;
+    private String to;
     private String from;
     private String message;
-    private byte[] attachment;
+    private String attachment;
 
 
     public Long getVisitId() {
@@ -19,11 +18,11 @@ public class Message extends BaseEntity{
         this.visitId = visitId;
     }
 
-    public Date getDate() {
+    public String getDate() {
         return date;
     }
 
-    public void setDate(Date date) {
+    public void setDate(String date) {
         this.date = date;
     }
 
@@ -51,11 +50,31 @@ public class Message extends BaseEntity{
         this.message = message;
     }
 
-    public byte[] getAttachment() {
+    public String getAttachment() {
         return attachment;
     }
 
-    public void setAttachment(byte[] attachment) {
+    public void setAttachment(String attachment) {
         this.attachment = attachment;
+    }
+
+    public String getTo() {
+        return to;
+    }
+
+    public void setTo(String to) {
+        this.to = to;
+    }
+
+    @Override public String toString() {
+        return "Message{" +
+            "visitId=" + visitId +
+            ", date=" + date +
+            ", subject='" + subject + '\'' +
+            ", to='" + to + '\'' +
+            ", from='" + from + '\'' +
+            ", message='" + message + '\'' +
+            ", attachment=" + attachment +
+            '}';
     }
 }

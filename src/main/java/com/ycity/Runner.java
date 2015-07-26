@@ -1,9 +1,9 @@
 package com.ycity;
 
 import com.ycity.api.DocumentCreator;
+import com.ycity.api.PageParseResult;
 import com.ycity.api.PageParser;
 import com.ycity.api.exception.DocumentCreatorException;
-import com.ycity.api.exception.InvalidJsFunction;
 import com.ycity.api.exception.InvalidShowMessageArgsAmount;
 import com.ycity.api.exception.PathException;
 import com.ycity.api.impl.FileDocumentCreator;
@@ -18,10 +18,13 @@ public class Runner {
 
     private static String host = "F://java_projects/grabber/jago/";
 
-    public static void main(String[] args) throws IOException, PathException, InvalidShowMessageArgsAmount, DocumentCreatorException, InvalidJsFunction {
+    public static void main(String[] args)
+        throws IOException, PathException, InvalidShowMessageArgsAmount, DocumentCreatorException {
         DocumentCreator documentCreator = new FileDocumentCreator();
-        MessagePageMapper messagePageMapper = new FileMessagePageMapper(host+"/patientMessage",documentCreator);
-        PageParser<Message> messagePageParser = new MessagePageParser(documentCreator,messagePageMapper);
-        messagePageParser.parsePage(host,1l);
+        MessagePageMapper messagePageMapper =
+            new FileMessagePageMapper(host + "/patientMessage", documentCreator);
+        PageParser<Message> messagePageParser =
+            new MessagePageParser(documentCreator, messagePageMapper);
+        PageParseResult<Message> messagePageParseResult = messagePageParser.parsePage(host, 1l);
     }
 }

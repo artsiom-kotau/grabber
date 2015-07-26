@@ -6,5 +6,6 @@ import org.jsoup.nodes.Document;
 
 public interface MessagePageMapper {
 
-    Document getMessagePage(ShowMessageArgs messageArgs) throws DocumentCreatorException, PathException;
+    Document getMessagePage(ShowMessageArgs messageArgs)
+        throws DocumentCreatorException, PathException;
 }
