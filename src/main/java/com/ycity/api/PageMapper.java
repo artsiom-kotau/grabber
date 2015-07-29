@@ -5,6 +5,6 @@ import com.ycity.api.exception.PathException;
 import org.jsoup.nodes.Document;
 
 public interface PageMapper<T> {
-    Document getMessagePage(T mapperArgs)
+    Document getPageByParams(T mapperArgs)
         throws DocumentCreatorException, PathException;
 }

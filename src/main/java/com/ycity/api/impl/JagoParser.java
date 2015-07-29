@@ -6,8 +6,8 @@ import com.ycity.api.PageParser;
 import com.ycity.api.Parser;
 import com.ycity.api.appointment.impl.AppointmentPageParser;
 import com.ycity.api.demographics.DemographicsPageParser;
-import com.ycity.api.message.MessagePageMapper;
-import com.ycity.api.message.impl.MessagePageParser;
+import com.ycity.api.message.impl.jago.JagoMessagePageMapper;
+import com.ycity.api.message.impl.jago.JagoMessagePageParser;
 import com.ycity.api.model.BaseEntity;
 
 import java.io.Serializable;
@@ -19,10 +19,10 @@ public class JagoParser implements Parser {
     private List<PageParser> pageParsers;
 
     public JagoParser(String host, DocumentCreator documentCreator,
-        MessagePageMapper messagePageMapper) {
+        JagoMessagePageMapper jagoMessagePageMapper) {
         this.host = host;
         this.pageParsers = new ArrayList<>(3);
-        this.pageParsers.add(new MessagePageParser(documentCreator, messagePageMapper));
+        this.pageParsers.add(new JagoMessagePageParser(documentCreator, jagoMessagePageMapper));
         this.pageParsers.add(new AppointmentPageParser(documentCreator));
         this.pageParsers.add(new DemographicsPageParser(documentCreator));
     }

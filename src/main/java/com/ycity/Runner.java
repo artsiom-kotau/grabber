@@ -1,40 +1,30 @@
 package com.ycity;
 
 import com.ycity.api.DocumentCreator;
-import com.ycity.api.PageParseResult;
+import com.ycity.api.PageMapper;
 import com.ycity.api.PageParser;
 import com.ycity.api.Parser;
-import com.ycity.api.appointment.impl.AppointmentPageParser;
-import com.ycity.api.demographics.DemographicsPageParser;
-import com.ycity.api.exception.DocumentCreatorException;
-import com.ycity.api.exception.InvalidShowMessageArgsAmount;
-import com.ycity.api.exception.PathException;
 import com.ycity.api.impl.FileDocumentCreator;
 import com.ycity.api.impl.JagoParser;
-import com.ycity.api.message.impl.MessagePageParser;
-import com.ycity.api.message.MessagePageMapper;
-import com.ycity.api.message.impl.FileMessagePageMapper;
-import com.ycity.api.model.Appointment;
-import com.ycity.api.model.Demographics;
+import com.ycity.api.message.impl.jago.JagoMessagePageMapper;
+import com.ycity.api.message.impl.jago.JagoFileJagoMessagePageMapper;
+import com.ycity.api.message.impl.myjmh.MyJmhFileMessagePageMapper;
+import com.ycity.api.message.impl.myjmh.MyJmhMessagePageParser;
+import com.ycity.api.message.impl.myjmh.MyJmhShowMessageArgs;
 import com.ycity.api.model.Message;
 
-import java.io.IOException;
 import java.util.Map;
 
 public class Runner {
 
-    private static String host = "jago/";
+    private static String host = "jmh/";
 
     public static void main(String[] args) {
         DocumentCreator documentCreator = new FileDocumentCreator();
-        MessagePageMapper messagePageMapper =
-            new FileMessagePageMapper(host + "/patientMessage", documentCreator);
-        Parser parser = new JagoParser(host,documentCreator,messagePageMapper);
-        for(Map.Entry entry : parser.parse(1l).entrySet()) {
-            System.out.println(entry.getKey());
-            System.out.println(entry.getValue());
-            System.out.println("--------------------------");
-        }
+        PageMapper<MyJmhShowMessageArgs> pageMapper = new MyJmhFileMessagePageMapper(host,documentCreator);
+        PageParser<Message> pageParser = new MyJmhMessagePageParser(documentCreator,pageMapper);
+        System.out.println(pageParser.parsePage(host,1l).getEntities());
+        System.out.println(pageParser.parsePage(host,1l).getException());
 
     }
 }
