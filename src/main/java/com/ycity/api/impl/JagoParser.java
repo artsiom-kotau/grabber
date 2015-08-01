@@ -4,8 +4,8 @@ import com.ycity.api.DocumentCreator;
 import com.ycity.api.PageParseResult;
 import com.ycity.api.PageParser;
 import com.ycity.api.Parser;
-import com.ycity.api.appointment.impl.AppointmentPageParser;
-import com.ycity.api.demographics.DemographicsPageParser;
+import com.ycity.api.appointment.jago.JagoAppointmentPageParser;
+import com.ycity.api.demographics.jago.JagoDemographicsPageParser;
 import com.ycity.api.message.impl.jago.JagoMessagePageMapper;
 import com.ycity.api.message.impl.jago.JagoMessagePageParser;
 import com.ycity.api.model.BaseEntity;
@@ -23,8 +23,8 @@ public class JagoParser implements Parser {
         this.host = host;
         this.pageParsers = new ArrayList<>(3);
         this.pageParsers.add(new JagoMessagePageParser(documentCreator, jagoMessagePageMapper));
-        this.pageParsers.add(new AppointmentPageParser(documentCreator));
-        this.pageParsers.add(new DemographicsPageParser(documentCreator));
+        this.pageParsers.add(new JagoAppointmentPageParser(documentCreator));
+        this.pageParsers.add(new JagoDemographicsPageParser(documentCreator));
     }
 
     public <T extends BaseEntity> Map<Class<T>, Collection<T>> parse(Serializable memberId) {

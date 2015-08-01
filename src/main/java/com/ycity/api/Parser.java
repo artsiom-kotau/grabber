@@ -1,8 +1,5 @@
 package com.ycity.api;
 
-import com.ycity.api.exception.DocumentCreatorException;
-import com.ycity.api.exception.InvalidShowMessageArgsAmount;
-import com.ycity.api.exception.PathException;
 import com.ycity.api.model.BaseEntity;
 
 import java.io.Serializable;

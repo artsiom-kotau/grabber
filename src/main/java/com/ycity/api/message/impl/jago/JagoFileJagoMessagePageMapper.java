@@ -1,15 +1,12 @@
 package com.ycity.api.message.impl.jago;
 
+import com.ycity.api.AbstractPageMapper;
 import com.ycity.api.DocumentCreator;
-import com.ycity.api.exception.DocumentCreatorException;
-import com.ycity.api.exception.PathException;
-import com.ycity.api.message.AbstractMessagePageMapper;
-import org.jsoup.nodes.Document;
 
 import java.util.HashMap;
 import java.util.Map;
 
-public class JagoFileJagoMessagePageMapper extends AbstractMessagePageMapper<JagoShowMessageArgs>
+public class JagoFileJagoMessagePageMapper extends AbstractPageMapper<JagoShowMessageArgs>
     implements JagoMessagePageMapper {
     private final static Map<JagoShowMessageArgs, String> pathToMessage = new HashMap<>();
 
@@ -42,7 +39,7 @@ public class JagoFileJagoMessagePageMapper extends AbstractMessagePageMapper<Jag
 
 
     public JagoFileJagoMessagePageMapper(String host, DocumentCreator documentCreator) {
-        super(host,documentCreator);
+        super(host, documentCreator);
     }
 
     @Override protected String getPath(JagoShowMessageArgs messageArgs) {

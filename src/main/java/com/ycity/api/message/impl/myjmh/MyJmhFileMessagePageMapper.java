@@ -1,18 +1,14 @@
 package com.ycity.api.message.impl.myjmh;
 
+import com.ycity.api.AbstractPageMapper;
 import com.ycity.api.DocumentCreator;
-import com.ycity.api.message.AbstractMessagePageMapper;
 
 import java.util.HashMap;
 import java.util.Map;
 
-public class MyJmhFileMessagePageMapper extends AbstractMessagePageMapper<MyJmhShowMessageArgs>
+public class MyJmhFileMessagePageMapper extends AbstractPageMapper<MyJmhShowMessageArgs>
     implements MyJmhMessagePageMapper {
     private static Map<MyJmhShowMessageArgs, String> pathToMessage = new HashMap<>();
-
-    public MyJmhFileMessagePageMapper(String host, DocumentCreator documentCreator) {
-        super(host, documentCreator);
-    }
 
     static {
         pathToMessage.put(new MyJmhShowMessageArgs("1", "read", "1"),
@@ -25,6 +21,10 @@ public class MyJmhFileMessagePageMapper extends AbstractMessagePageMapper<MyJmhS
             "/johnmuirhealth/myjmh-client/tiles/messages_1.htm");
         pathToMessage.put(new MyJmhShowMessageArgs("1", "read", "5"),
             "/johnmuirhealth/myjmh-client/tiles/messages_1.htm");
+    }
+
+    public MyJmhFileMessagePageMapper(String host, DocumentCreator documentCreator) {
+        super(host, documentCreator);
     }
 
     @Override protected String getPath(MyJmhShowMessageArgs messageArgs) {

@@ -2,7 +2,6 @@ package com.ycity.api.message.impl.myjmh;
 
 import com.ycity.api.*;
 import com.ycity.api.exception.DocumentCreatorException;
-import com.ycity.api.exception.InvalidShowMessageArgsAmount;
 import com.ycity.api.exception.PathException;
 import com.ycity.api.model.Message;
 import org.jsoup.nodes.Document;
@@ -18,12 +17,10 @@ import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
 public class MyJmhMessagePageParser extends AbstractPageParser implements PageParser<Message> {
+    private static final Pattern onclickPattern = Pattern.compile(
+        "gotoInsideAsp\\('inside\\.asp\\?mode=messages&mbox=(\\d*)&action=([a-zA-Z]*)&id=(\\d*)'\\)");
     //todo replace with myjmh-client/tiles/inside.asp?mode=messages&mbox=1
     private final String MESSAGES_URL = "/johnmuirhealth/myjmh-client/tiles/messages.htm";
-
-    private static final Pattern onclickPattern = Pattern.compile(
-        "gotoInsideAsp\\('inside\\.asp\\?mode=messages&mbox=(\\d*)&action=([a-zA-Z]*)&id=(\\d*)'\\)"
-    );
 
     public MyJmhMessagePageParser(DocumentCreator documentCreator, PageMapper pageMapper) {
         super(documentCreator, pageMapper);
@@ -41,8 +38,8 @@ public class MyJmhMessagePageParser extends AbstractPageParser implements PagePa
                 message.setMemberId(memberId);
                 message.setInbox(true);
                 message.setSubject(messageData.getTitle());
-                setHeader(messageSection,message);
-                setBody(messageSection,message);
+                setHeader(messageSection, message);
+                setBody(messageSection, message);
                 messages.add(message);
             }
             return new PageParseResult<>(Message.class, messages);
@@ -51,7 +48,7 @@ public class MyJmhMessagePageParser extends AbstractPageParser implements PagePa
         }
     }
 
-    private void  setHeader(Element messageSection, Message message) {
+    private void setHeader(Element messageSection, Message message) {
         Element header = messageSection.getElementsByClass("content").first();
         Elements content = header.getElementsByTag("p");
         message.setTo(content.get(0).text());
@@ -59,7 +56,7 @@ public class MyJmhMessagePageParser extends AbstractPageParser implements PagePa
         message.setDate(content.get(2).text());
     }
 
-    private void  setBody(Element messageSection, Message message) {
+    private void setBody(Element messageSection, Message message) {
         Element body = messageSection.getElementsByClass("content").get(1);
         Elements content = body.getElementsByClass("srchbl");
         if (!content.isEmpty()) {
@@ -68,7 +65,7 @@ public class MyJmhMessagePageParser extends AbstractPageParser implements PagePa
     }
 
     private List<MessageData> getMessageData(Document document)
-        throws  PathException, DocumentCreatorException {
+        throws PathException, DocumentCreatorException {
         List<MessageData> messageDatas = new ArrayList<>();
         Set<MyJmhShowMessageArgs> alreadyAdded = new HashSet<>();
         Element messageTable = document.getElementById("msglist_inbox_2821");
@@ -79,9 +76,9 @@ public class MyJmhMessagePageParser extends AbstractPageParser implements PagePa
                 for (Element row : rows) {
                     MyJmhShowMessageArgs args = getArgsFromElement(row);
                     if (args != null && !alreadyAdded.contains(args)) {
-                        Document messagePage =  pageMapper.getPageByParams(args);
+                        Document messagePage = pageMapper.getPageByParams(args);
                         String title = getMessageTitle(row);
-                        messageDatas.add(new MessageData(messagePage,title));
+                        messageDatas.add(new MessageData(messagePage, title));
                         alreadyAdded.add(args);
                     }
 
@@ -105,12 +102,13 @@ public class MyJmhMessagePageParser extends AbstractPageParser implements PagePa
         return title;
     }
 
-    private MyJmhShowMessageArgs getArgsFromElement(Element messageElement){
+    private MyJmhShowMessageArgs getArgsFromElement(Element messageElement) {
         MyJmhShowMessageArgs myJmhShowMessageArgs = null;
         String onclick = messageElement.attr("onclick");
         Matcher matcher = onclickPattern.matcher(onclick);
         if (matcher.find()) {
-            myJmhShowMessageArgs = new MyJmhShowMessageArgs(matcher.group(1),matcher.group(2),matcher.group(3));
+            myJmhShowMessageArgs =
+                new MyJmhShowMessageArgs(matcher.group(1), matcher.group(2), matcher.group(3));
         }
         return myJmhShowMessageArgs;
 

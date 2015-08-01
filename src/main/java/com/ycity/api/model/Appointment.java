@@ -1,7 +1,5 @@
 package com.ycity.api.model;
 
-import com.ycity.api.appointment.AppointmentType;
-
 import java.util.Date;
 
 public class Appointment extends BaseEntity {

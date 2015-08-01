@@ -29,10 +29,10 @@ public class JagoMessagePageParser extends AbstractPageParser implements PagePar
 
     public JagoMessagePageParser(DocumentCreator documentCreator,
         JagoMessagePageMapper jagoMessagePageMapper) {
-        super(documentCreator,jagoMessagePageMapper);
+        super(documentCreator, jagoMessagePageMapper);
     }
 
-    public PageParseResult<Message> parsePage(String host, Serializable memberId){
+    public PageParseResult<Message> parsePage(String host, Serializable memberId) {
         try {
             Document messagesPage = documentCreator.create(host + MESSAGES_URL);
             List<Message> messages = new ArrayList<>();
@@ -71,8 +71,8 @@ public class JagoMessagePageParser extends AbstractPageParser implements PagePar
         return messages;
     }
 
-    private JagoShowMessageArgs getShowMessageArgsFromElement(Element messageElement, boolean isSent)
-        throws InvalidShowMessageArgsAmount {
+    private JagoShowMessageArgs getShowMessageArgsFromElement(Element messageElement,
+        boolean isSent) throws InvalidShowMessageArgsAmount {
         String onclick = messageElement.attr("onclick");
         String[] showMessage = onclick.split("showMessags");
         if (showMessage.length > 1) {
